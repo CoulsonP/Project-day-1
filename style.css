@@ -1,14 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?faimly=Muli&display=swap');
+
 
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Muli', sans-serif;
     display: flex;
-    /* creates colum */
-    flex-direction: column;
     /* centers text */
     align-items: center;
     justify-content: center;
@@ -19,4 +18,59 @@ body {
     margin: 0;
 }
 
+.container {
+    /* puts content in a row */
+    display: flex;
+    width: 90vw;
+}
 
+.panel {
+    background-size: auto 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    /* rounds images */
+    border-radius: 50px;
+    /* color of text in panel */
+    color: white;
+    /* when hovers shows cursor */
+    cursor: pointer;
+    flex: 0.5;
+    /* adds space between images */
+    margin: 10px;
+    /* keeps text in box */
+    position: relative;
+    /* creates transition of .7 seconds when going to image */
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+    font-size: 24px;
+    position: absolute;
+    /* puts text at bottom of image */
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    /* makes text completely invisible */
+    opacity: 0;
+}
+
+/* when the panel has cursor */
+.panel.active {
+    flex: 5;
+}
+
+.panel.active h3{
+    opacity: 1;
+}
+
+@media(max-width: 480px) {
+    .container {
+        width: 100vw;
+    }
+
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5){
+        display: none;
+    }
+}
